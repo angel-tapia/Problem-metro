@@ -5,22 +5,22 @@ Hemos estado esperando ya mucho tiempo la línea $3$ del metro, esto es cansado 
 
 Creemos que este es un trabajo muy importante, y tú como programador (y arquitecto) puedes completar esta tarea.
 
-El operador te da  Q acciones, que contienen $t,a$, donde $t$ es el tipo de acción y $a$ es una estación (la $t$ solo puede tener un valor entre $0$ y $1$).
-
-Si $t=1$
-
-Se pregunta entre las estaciones que conoces, el número mas cercano a $a$, si hay empate entre las estaciones cercanas se elije la estación de menor numero, y se regresa ese número.
+El operador te da  Q acciones, que contienen $t,a$, donde $t$ es el tipo de acción y $a$ es una estación.
 
 Si $t=0$
 
 Se agrega la estación en la posición $a$ entre las estaciones que tienes actualmente
+
+Si $t=1$
+
+Se pregunta entre las estaciones que conoces, el número mas cercano a $a$, si hay empate entre las estaciones cercanas se elije la estación de menor numero, y se regresa ese número.
 
 # Entrada
 
 La entrada consistirá de un entero $Q$ y $Q$ líneas, que consisten de $t,a$, donde $t$ es el $tipo$ de acción  que se hará y $a$ será la estación que se busca.
 
 # Salida
-Las respuestas de la acción tipo $1$, serán separadas por un salto de línea.
+Las respuestas de la acción $tipo 1$, serán separadas por un salto de línea.
 # Ejemplo
 
 ||input
