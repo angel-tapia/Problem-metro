@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+const int MaxN=1e6+1;	
+typedef long long int lli;
+#define fst first
+#define snd second
+	vector <int> generar(int N){
+		vector <int> v;
+		while(N--){
+			v.push_back(rand()%1000000);
+		}
+		return v;
+	}
+	string toString(int k){
+		string nmb;
+		do{
+			nmb.push_back(k%10+'0');
+			k/=10;
+		}while(k>0);
+		reverse(nmb.begin(),nmb.end());
+		return nmb;
+	}
+	string toS(lli k){
+		string r,b;
+		while(k>0){
+			b=char(k%10)-'0';
+			cout<<b<<"\n";
+			r=b+r;
+			k/=10;
+		}
+		return r;
+	}
+	string solve(vector <pair <lli,lli> > arr){
+		int N,i,j,p,q;
+		string res="";
+		N=arr.size();
+		set <lli>::iterator c,d;
+		set <lli> setito;
+		for(i=0;i<N;i++){
+			if(arr[i].fst==0){
+				setito.insert(arr[i].snd);
+			}
+			else {
+				c=setito.lower_bound(arr[i].snd);
+				d=setito.upper_bound(arr[i].snd);	
+				if(c==setito.begin()){
+					res=res+" ";		
+				}
+			}
+		}
+	}
+int main(){
+	int N,i,j,p,q;
+	srand(time(NULL));
+	cout<<toS(5123);
+}
