@@ -1,13 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int MaxN=1e6+1;	
+const int MaxN=1e6+1;
 typedef long long int lli;
+lli mod=1e9+1;;
+lli modQ=1e6+1;
+vector < pair <lli,lli> > line;
 #define fst first
 #define snd second
-	vector <int> generar(int N){
-		vector <int> v;
+	vector <pair <lli,lli> > generar(lli N){
+		vector < pair<lli, lli > > v;
+		lli a,b;
 		while(N--){
-			v.push_back(rand()%1000000);
+            a=rand()%2;
+            b=rand()%mod+1234567;
+			v.push_back({a,b});
 		}
 		return v;
 	}
@@ -20,21 +26,12 @@ typedef long long int lli;
 		reverse(nmb.begin(),nmb.end());
 		return nmb;
 	}
-	string toS(lli k){
-		string r,b;
-		while(k>0){
-			b=char(k%10)-'0';
-			cout<<b<<"\n";
-			r=b+r;
-			k/=10;
-		}
-		return r;
-	}
 	string solve(vector <pair <lli,lli> > arr){
-		int N,i,j,p,q;
+		lli N,i,j,p,q,e;
+		string a,b;
 		string res="";
 		N=arr.size();
-		set <lli>::iterator c,d;
+        set <lli>::iterator c,d;
 		set <lli> setito;
 		for(i=0;i<N;i++){
 			if(arr[i].fst==0){
@@ -42,15 +39,44 @@ typedef long long int lli;
 			}
 			else {
 				c=setito.lower_bound(arr[i].snd);
-				d=setito.upper_bound(arr[i].snd);	
+				d=setito.upper_bound(arr[i].snd);
+				p=*c,q=*d,e=arr[i].snd;
+				a=toString(p),b=toString(q);
 				if(c==setito.begin()){
-					res=res+" ";		
+					res=res+" "+a;
+					continue;
 				}
+                if(d==setito.end()){
+                    res=res+" "+a;
+                    continue;
+                }
+                e-p>e-q?res=res+" "+a:res=res+" "+b;
 			}
 		}
+        return res;
 	}
 int main(){
-	int N,i,j,p,q;
+	lli N,i,j,p,q,k;
 	srand(time(NULL));
-	cout<<toS(5123);
+    for(k=142;k<180;k++){
+        N=(rand()%modQ+modQ)%modQ+1e5*5;
+        line=generar(N);
+        /*cout<<N<<"\n";
+        for(i=0;i<N;i++){
+            cout<<line[i].fst<<" "<<line[i].snd<<"\n";
+        }
+        return 0;*/
+        string inputt="case"+toString(k)+".in";
+        string outputt="case"+toString(k)+".out";
+        ofstream fin(inputt);
+        ofstream fout(outputt);
+
+        fin<<N<<"\n";
+        for(i=0;i<N;i++){
+            fin<<line[i].fst<<" "<<line[i].snd<<"\n";
+        }
+        fout<<solve(line)<<"\n";
+        fin.close();
+        fout.close();
+    }
 }
