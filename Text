@@ -20,7 +20,7 @@ Se pregunta entre las estaciones que conoces, el número mas cercano a $a$, si h
 La entrada consistirá de un entero $Q$ y $Q$ líneas, que consisten de $t,a$, donde $t$ es el $tipo$ de acción  que se hará y $a$ será la estación que se busca.
 
 # Salida
-Las respuestas de la acción $tipo 1$, serán separadas por un salto de línea.
+Las respuestas de la acción $tipo 1$, serán separadas por un espacio.
 # Ejemplo
 
 ||input
@@ -31,8 +31,7 @@ Las respuestas de la acción $tipo 1$, serán separadas por un salto de línea.
 0 10
 1 2
 ||output
-5
-3
+5 3
 ||description
 Trivial
 ||input
@@ -44,9 +43,7 @@ Trivial
 0 5
 1 9
 ||output
-1
-1
-10
+1 1 10
 ||end
 
 # Límites
